@@ -1,31 +1,25 @@
-#include <stdio.h>
-#include <cstdlib>
+#include "compiler.h"
 
-extern int lineno;
-extern FILE* yyin;
-extern FILE* yyout;
-
-int yyparse();
-void dump_table(FILE*);
-
-void yyerror (char* str) {
-    fprintf(stderr, "Syntax error at line %d\n", lineno);
-    exit(1);
+Ast *ast_node(char *name, Ast *left, Ast *right) {
+    return nullptr;
 }
 
-int main (int argc, char *argv[]) {
-    if (argc < 2) {
-        fputs("compiler <path to file>", stderr);
-        exit(1);
-    }
-    int flag;
-    yyin = fopen(argv[1], "r");
-    flag = yyparse();
-    fclose(yyin);
+Ast *add_variable(char *name, Ast *variables) {
+    return nullptr;
+}
 
-    yyout = fopen("symtab_out.txt", "w");
-    dump_table(yyout);
-    fclose(yyout);
+Ast *add_assignment(char *name, Ast *expression) {
+    return nullptr;
+}
 
-    return flag;
+Ast *add_flow(char *name, Ast *cond, Ast *then_op, Ast *else_op) {
+    return nullptr;
+}
+
+Ast *get_variable(char *name) {
+    return nullptr;
+}
+
+Ast *get_constant(char *name) {
+    return nullptr;
 }

@@ -4,7 +4,6 @@
     #include <stdio.h>
 	#include <stdlib.h>
 	#include <string.h>
-	#include "../src/symtab.h"
 	#include "parser.tab.h"
 	extern FILE *yyin;
 	extern FILE *yyout;
@@ -38,8 +37,7 @@
 "===="			{return EQUALS;}
 "="				{return ASSIGN;}
 
-[a-zA-Z]+		{	
-					insert(yytext, lineno);
+[a-zA-Z]+		{
 					return ID;
 				}
 [0-9]+			{return CONST;}

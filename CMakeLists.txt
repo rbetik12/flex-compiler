@@ -3,4 +3,4 @@ project(compilers)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(compilers src/compiler.cpp src/symtab.h src/symtab.cpp)
+add_executable(compilers src/compiler.h src/compiler.cpp src/main.cpp)
