@@ -1,0 +1,4 @@
+var b, c, sum;
+b = 5;
+c = 4;
+sum = b + c;
