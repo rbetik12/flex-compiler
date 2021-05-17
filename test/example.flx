@@ -1,4 +1,4 @@
 var b, c, sum;
-b = 5;
+b = -5 - (-6);
 c = 4;
 sum = b + c;

@@ -2,7 +2,7 @@ NAME=compiler
 
 all: build-compiler
 
-build-compiler:
+build-compiler: parser.tab.c lexer.yy.c
 	g++ -o $(NAME) parser.tab.c lex.yy.c
 
 parser.tab.c:
