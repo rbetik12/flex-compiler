@@ -1,4 +1,4 @@
-NAME=compiler
+NAME=flex-compiler
 
 all: build-compiler
 
