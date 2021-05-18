@@ -1,0 +1,13 @@
+var a, b, c;
+a = 1;
+b = 2;
+c = 3;
+
+if (a > 1) then
+    b = 3;
+else {
+    b = -c;
+    b = c + a;
+}
+
+b = c + 1;

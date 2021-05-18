@@ -4,7 +4,7 @@
     #include <stdio.h>
 	#include <stdlib.h>
 	#include <string.h>
-	#include "parser.tab.h"
+	#include "parser.tab.hpp"
 	extern FILE *yyin;
 	extern FILE *yyout;
  
@@ -38,9 +38,13 @@
 "="				{return ASSIGN;}
 
 [a-zA-Z]+		{
+                    yylval.str = strdup(yytext);
 					return ID;
 				}
-[0-9]+			{return CONST;}
+[0-9]+			{
+                    yylval.str = strdup(yytext);
+                    return CONST;
+                }
 
 "\n"			{lineno += 1;}
 [ \t\r\f]+

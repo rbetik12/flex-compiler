@@ -3,21 +3,24 @@
 #include <string>
 #include <utility>
 
+enum class ASTNodeType {
+    Operator,
+    Identifier,
+    Const,
+    FlowIf,
+    FlowThen,
+    FlowElse,
+    UMinus,
+};
+
 struct Ast {
     std::string node_type;
-    std::string name;
+    std::string value;
     Ast* left;
     Ast* right;
 
     Ast(): node_type(), left(nullptr), right(nullptr) {}
     Ast(std::string _node_type): node_type(std::move(_node_type)), left(nullptr), right(nullptr) {}
-};
-
-struct AstFlow {
-    std::string node_type;
-    Ast* cond;
-    Ast* then_op;
-    Ast* else_op;
 };
 
 #ifdef __cplusplus

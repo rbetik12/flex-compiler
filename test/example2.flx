@@ -1,0 +1,4 @@
+var a, c;
+a = 2;
+c = 3;
+if (c > 3) then c = -1;
