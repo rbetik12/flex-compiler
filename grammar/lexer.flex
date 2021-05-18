@@ -15,15 +15,15 @@
 
 %%
 
-"//".* 			{ printf("Comment at line %d\n", lineno); }
+"//".* 			{printf("Comment at line %d\n", lineno);}
 
 "var" 			{return VAR;}
 "," 			{return COMMA;}
 ";" 			{return SEMI;}
-"("				{ return LPAREN; }
-")"				{ return RPAREN; }
-"{"				{ return LBRACK; }
-"}"				{ return RBRACK; }
+"("				{return LPAREN;}
+")"				{return RPAREN;}
+"{"				{return LBRACK;}
+"}"				{return RBRACK;}
 "if" 			{return IF;}
 "then" 			{return THEN;}
 "else" 			{return ELSE;}

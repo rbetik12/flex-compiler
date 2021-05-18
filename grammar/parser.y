@@ -45,7 +45,7 @@ var_list:
 	;
 
 statements: op_list { $$ = ast_node(ASTNodeType::ProgramBody, nullptr, $1, nullptr); }
-	;
+	  ;
 
 op_list: operator { $$ = $1; }
 	| operator op_list { $$ = ast_node(ASTNodeType::Operators, nullptr, $1, $2); }
@@ -57,7 +57,7 @@ operator: ID ASSIGN statement SEMI { $$ = add_assignment($1, $3); }
  	| LBRACK op_list RBRACK { $$ = $2; }
  	;
 
-statement: MINUS substatement { $$ = ast_node(ASTNodeType::UMinus, nullptr, nullptr, $2); }
+statement: MINUS substatement { $$ = ast_node(ASTNodeType::Expression, "U", nullptr, $2); }
 	 | substatement { $$ = $1; }
 	 ;
 

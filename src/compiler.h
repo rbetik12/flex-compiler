@@ -13,7 +13,6 @@ enum class ASTNodeType {
     FlowIf,
     FlowIfElse,
     FlowOp,
-    UMinus,
     Root,
     ProgramBody,
     VarDecl,
