@@ -21,9 +21,6 @@ int main (int argc, char *argv[]) {
     yyin = fopen(argv[1], "r");
     flag = yyparse();
     fclose(yyin);
-    /*yyout = fopen("symtab_out.txt", "w");
-    dump_table(yyout);
-    fclose(yyout);*/
 
     return flag;
 }

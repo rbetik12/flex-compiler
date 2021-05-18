@@ -1,38 +1,47 @@
 #pragma once
+
 #include <unordered_set>
 #include <string>
 #include <utility>
 
 enum class ASTNodeType {
+    Undefined,
     Operator,
+    Expression,
     Identifier,
     Const,
     FlowIf,
-    FlowThen,
-    FlowElse,
+    FlowIfElse,
+    FlowOp,
     UMinus,
+    Root,
+    ProgramBody,
+    VarDecl,
+    VarList,
+    Operators,
 };
 
 struct Ast {
-    std::string node_type;
-    std::string value;
-    Ast* left;
-    Ast* right;
+    ASTNodeType node_type;
+    char *value;
+    Ast *left;
+    Ast *right;
 
-    Ast(): node_type(), left(nullptr), right(nullptr) {}
-    Ast(std::string _node_type): node_type(std::move(_node_type)), left(nullptr), right(nullptr) {}
+    Ast() : node_type(ASTNodeType::Undefined), value(nullptr), left(nullptr), right(nullptr) {}
+
+    Ast(ASTNodeType _node_type, char *_value) : node_type(_node_type), value(_value), left(nullptr), right(nullptr) {}
 };
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-Ast* add_variable(char* name, Ast* variables);
-Ast* ast_node(char* name, Ast* left, Ast* right);
-Ast* add_assignment(char* name, Ast* expression);
-Ast* add_flow(char* name, Ast* cond, Ast* then_op, Ast* else_op);
-Ast* get_variable(char* name);
-Ast* get_constant(char* name);
+Ast *add_variable(char *name, Ast *variables);
+Ast *ast_node(ASTNodeType type, char *value, Ast *left, Ast *right);
+Ast *add_assignment(char *name, Ast *expression);
+Ast *add_flow(ASTNodeType type, Ast *cond, Ast *then_op, Ast *else_op);
+Ast *get_variable(char *name);
+Ast *get_constant(char *name);
 
 #ifdef __cplusplus
 }
